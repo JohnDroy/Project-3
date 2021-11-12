@@ -14,3 +14,4 @@ def play(word):
     print("Play Hangman!")
     print(display_hangman(tries))
     print(word_completion)
+    print("\n")
