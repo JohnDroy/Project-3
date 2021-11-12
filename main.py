@@ -40,9 +40,27 @@ def play(word):
                 print("You have already guessed that word", guess)
             elif guess != word:
                 print(guess, "Incorrect word")  
+                tries -= 1
+                guessed_words.append(guess)
+            else:
+                guessed = True
+                word_completion = word    
         else:  
             print("Not a valid guess.")
         print(display_hangman(tries))
         print(word_completion)
-        print("\n")      
+        print("\n") 
+    if guessed:
+        print("Congrats, you guessed the word! You Win!")
+    else:
+        print("Oh no, looks like you've ran out of tries. The word was " + word ". Better luck next time")    
 
+def main():
+    word = get_words()
+    play(word)
+    while input("Play again? (Y/N) ").upper() == "Y":
+        word = get_words()
+        play(word)
+
+if __name__ == "__main__":
+    main()
